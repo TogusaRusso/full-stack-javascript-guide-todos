@@ -1,3 +1,11 @@
+/* global $ */
+$(function() {
+  $('input').on('click', function() {
+    $(this).parent().toggleClass('checked');
+  });
+});
+
+/*
 window.onload = function() {
   var checkboxes = document.getElementsByTagName('input');
   for (var i = 0; i < checkboxes.length; ++i) {
@@ -12,3 +20,4 @@ function clickHandler() {
     this.parentNode.className = '';
   }
 }
+*/
