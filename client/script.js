@@ -1,10 +1,10 @@
-var $ = require('jquery');
+var $ = require('jquery')
 
-$(function() {
-  $('input').on('click', function() {
-    $(this).parent().toggleClass('checked');
-  });
-});
+$(function () {
+  $('input').on('click', function () {
+    $(this).parent().toggleClass('checked')
+  })
+})
 
 /*
 window.onload = function() {
