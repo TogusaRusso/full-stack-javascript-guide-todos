@@ -11,7 +11,8 @@ var mongoose = require('mongoose')
 
 var routes = require('./routes/index')
 var users = require('./routes/users')
-var todos = require('./routes/todos')
+var todos = require('./routes/todos/index')
+var todosAPI = require('./routes/todos/api')
 
 var app = express()
 
@@ -30,7 +31,7 @@ app.use(
 )
 
 // uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -42,6 +43,7 @@ mongoose.connect('mongodb://localhost/todos')
 app.use('/', routes)
 app.use('/users', users)
 app.use('/todos', todos)
+app.use('/api/todos', todosAPI)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
