@@ -37,6 +37,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+browserify.settings({
+  transform: ['hbsfy']
+})
 app.get('/javascripts/bundle.js', browserify('./client/script.js'))
 mongoose.connect('mongodb://localhost/todos')
 
